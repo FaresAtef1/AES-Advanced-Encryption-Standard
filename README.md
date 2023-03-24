@@ -1,1 +1,2 @@
 # AES
+Verilog is used to implement modules for the Advanced Encryption Standard (AES), which is a FIPS-approved cryptographic algorithm designed to protect electronic data. AES is a symmetric block cipher capable of both encryption and decryption of information. Through encryption, data is transformed into ciphertext, an unintelligible form, while decryption reverts the ciphertext back into its original plaintext form.
