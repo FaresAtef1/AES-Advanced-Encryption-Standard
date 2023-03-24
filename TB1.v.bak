@@ -1,0 +1,19 @@
+module TB ();
+reg [127:0] PrevState1;
+reg [127:0] PrevState2;
+wire [127:0] NextState;
+
+
+initial 
+begin
+$monitor ("%h",NextState);
+PrevState1 = 128'h6353e08c0960e104cd70b751bacad0e7 ;
+PrevState2 = 128'h6353e08c0960e104cd70b751bacad0e7 ;
+
+end
+
+
+
+AddRoundKey A20 (PrevState1,PrevState2,NextState);
+
+endmodule

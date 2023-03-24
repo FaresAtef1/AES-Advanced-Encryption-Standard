@@ -1,0 +1,12 @@
+module RconGenerator (input[5:0] i , input [3:0]Nk , output [31:0] Rcon);
+wire[7:0] Power ;
+assign Power =(8'h02)** (i/Nk -1) ;
+
+assign Rcon = {Power,24'd0};
+
+
+
+
+
+
+endmodule

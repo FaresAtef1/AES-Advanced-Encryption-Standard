@@ -1,0 +1,35 @@
+module Wrapper (input[2:0] Size, input Enable , output Led[2:0]);
+
+reg [127:0] PLAINTEXT;
+reg [127:0] InKey128 ;
+reg [191:0] InKey192 ;
+reg [255:0] InKey256 ;
+wire [127:0] CipherText;  // m7tag ytzbt
+
+localparam WordsSize128 =128*(128/32 + 6+1);
+localparam WordsSize192 =128*(192/32 + 6+1);
+localparam WordsSize256 =128*(256/32 + 6+1);
+
+wire [WordsSize128-1:0] Words128 ;
+wire [WordsSize192-1:0] Words192 ;
+wire [WordsSize256-1:0] Words256 ;
+
+always @(posedge Enable)
+begin
+if (Enable==1)
+begin
+InKey128 =128'h000102030405060708090a0b0c0d0e0f ;
+InKey192 =192'h000102030405060708090a0b0c0d0e0f1011121314151617 ;
+InKey128 =256'h000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f ;
+PLAINTEXT: =128'h00112233445566778899aabbccddeeff;
+end
+end
+
+KeyExpansion #(128) KE1 (InKey128,Words128);
+
+AESEncrypt #(128) AESE1 (PLAINTEXT,Words128,CipherText);
+
+
+
+
+endmodule

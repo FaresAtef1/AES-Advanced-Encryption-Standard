@@ -1,0 +1,13 @@
+module tb ();
+reg PLAINTEXTH,KEY;
+wire OUT;
+
+initial
+begin
+PLAINTEXTH = 128'h 00112233445566778899aabbccddeeff ;
+$monitor ("%h",PLAINTEXTH);
+end
+
+
+AES A1 (PLAINTEXTH,KEY,OUt);
+endmodule

@@ -1,0 +1,15 @@
+module Print (Counter,State);
+input Counter ;
+input [127:0]State;
+
+always@(State)
+case(Counter)
+
+2'b00 : $display("fares1\t%h",State);
+2'b01 : $display("fares2\t%h",State);
+2'b10 : $display("fares3\t%h",State);
+2'b11 : $display("fares4\t%h",State);
+
+endcase
+
+endmodule

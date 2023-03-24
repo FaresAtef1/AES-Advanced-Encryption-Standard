@@ -1,0 +1,9 @@
+module KeyExpansion (input [127:0]BefKey , output [127:0] AftKey );
+
+RotWord
+
+
+
+
+
+endmodule
